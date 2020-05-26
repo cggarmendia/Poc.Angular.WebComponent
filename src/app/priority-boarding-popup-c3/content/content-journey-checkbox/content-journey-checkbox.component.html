@@ -1,0 +1,44 @@
+<div class="col_1-2 paddingRight5">
+  <label class="sectionBorder borderWidth1 border-radius--5 box-contracted-flights paddingTop15 paddingRight25"
+  [attr.for]="isInbound ? 'inbound-checkbox': 'outbound-checkbox'" id="js-contracted-departure">
+
+    <span class="iconContent iconContent--middle iconSize_xxxs iconContent--inline floatLeft">
+      <span class="iconContent__icon">
+        <span [ngClass] = "isInbound ? 'icon-vuelos_vuelta fs_17' : 'icon-vuelos_ida fs_17'"></span>
+      </span>
+      <span class="iconContent__text paddingLeft5" *ngIf="!isInbound">
+        <span class="fs_12" *ngIf="model.isMultiCity; else isNotMultiCityOutboundi18n">
+          {{labelsProvider.translate('popupMCFlightPRBZ') | replaceText: [1] }}
+        </span>
+      </span>
+      <span class="iconContent__text paddingLeft5" *ngIf="isInbound">
+        <span class="fs_12" *ngIf="model.isMultiCity; else isNotMultiCityInboundi18n">
+          {{labelsProvider.translate('popupMCFlightPRBZ') | replaceText: [2] }}
+        </span>
+      </span>
+    </span>
+
+    <span class="wrapper_elForm_checkInput floatRight">
+      <span class="elForm_checkInput">
+        <input id="{{isInbound ? 'inbound-checkbox': 'outbound-checkbox'}}" type="checkbox" [checked]="isChecked()"
+          (change)="onChange($event)" [disabled]="model.isCallToActionClicked"/>
+        <span class="label tc_greyMedium">
+          <span *ngIf="!isChecked()">
+            {{labelsProvider.translate('popupPurchasePRBZ') }}
+          </span>
+          <span *ngIf="isChecked()">
+            {{labelsProvider.translate('popupPurchasedPRBZ') }}
+          </span>
+        </span>
+      </span>
+    </span>
+  </label>
+</div>
+
+<ng-template #isNotMultiCityOutboundi18n>
+  {{labelsProvider.translate('popupOutboundFlightPRBZ')}}
+</ng-template>
+
+<ng-template #isNotMultiCityInboundi18n>
+  {{labelsProvider.translate('popupInboundFlightPRBZ')}}
+</ng-template>

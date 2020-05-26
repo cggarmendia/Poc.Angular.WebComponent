@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PriorityBoardingPopupC3Component</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script>
+      var PriorityBoardingPopupC3ComponentAngularModel = {
+        settings : { staticStyles : "", lang : "pt"},
+        data : { 
+          currencyCode: 'EUR',
+          isAllowed: true,
+          isOneWay: false,
+          hasFromPrice: true,
+          price: 15.10,
+          noPrice: 8.9,
+          paxCount: 8,
+          isOutboundEnabled: true,
+          isInboundEnabled: true,
+          isOnlyOutboundEnabled: false,
+          isOnlyInboundEnabled: false,
+          minPrice: 4,   
+          isMultiCity: true,
+          inboundPrice: 5.9,
+          outboundPrice: 5.9,
+          buttonSubmitIdSuffix: "LinkButtonSubmit",
+          buttonSubmitAttribute: "data-js-page-button-submit",
+          outputEventName: "changeSeatEvents.changeSeatSubmitClicked",
+          inputEventName: "changeSeatEvents.showPriorityBoardingPopupC3",
+          decimalSeparator: ","
+        }        
+      };   
+  </script>
+</head>
+<body id="wrapper">
+  <h1 style="text-align: center;">Priority Boarding Popup C3 Angular as WebComponent</h1>
+
+  <priority-boarding-popup-c3-markup></priority-boarding-popup-c3-markup>  
+  <hr/>
+  <div style="text-align:center;  margin: 0 auto;  width: 360px;  height: 300px;  padding: 20px;">
+    <h2>Entorno de prueba del componente</h2>
+    <button onclick="triggerEventToAngularComponent()" style="margin: 10px;">Click and notify the component
+    </button>
+    <hr/>
+    <textarea id="foo" style="margin: 0 auto;width: 100%;"></textarea>
+  </div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/7.4.4/polyfill.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/webcomponents-bundle.js"></script> 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zone.js/0.9.1/zone.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/custom-elements-es5-adapter.js"></script>
+  <script>
+    function triggerEventToAngularComponent(){
+      triggerEvent(document, "changeSeatEvents.showPriorityBoardingPopupC3");
+    } 
+
+    function triggerEvent(htmlelement, eventName){        
+        var event = document.createEvent("HTMLEvents");
+        event.initEvent(eventName, true, true);
+        event.eventName = eventName;
+        htmlelement.dispatchEvent(event);      
+    }  
+
+    document.addEventListener("DOMContentLoaded", 
+      function(){        
+        document.addEventListener("changeSeatEvents.changeSeatSubmitClicked", function (event){
+          document.getElementById("foo").innerHTML = "Esta información viene del componente: " + event.detail.buttonSubmitSelector;
+        });
+      }
+    ); 
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<p class="tc_greySoft fs_11 marginBottom5" *ngIf="!model.isOneWay && !model.isOnlyInboundEnabled">
+  <strong>
+    {{labelsProvider.translate('popupOutboundFlightBreakdownPRBZ')}}
+  </strong>
+  <span id="selectedServiceSingularOutbound" *ngIf="model.paxCount == 1">
+    {{labelsProvider.translate('popupSelectedServicePRBZ')}}
+  </span>
+  <span id="selectedServicePluralOutbound" *ngIf="model.paxCount > 1 && isOutboundCheckboxChecked()">
+    {{labelsProvider.translate('popupSelectedServicesPRBZ') | replaceText: [model.paxCount] }}
+  </span>
+  <span id="selectedServicePluralOutboundZero"  *ngIf="model.paxCount > 1 && !isOutboundCheckboxChecked()">
+    {{ labelsProvider.translate('popupSelectedServicesPRBZ') | replaceText: [0] }}
+  </span>
+  <span class="tc_greyLight"> | </span>
+  <strong>
+    {{labelsProvider.translate('popupInboundFlightBreakdownPRBZ')}}
+  </strong>
+  <span id="selectedServiceSingularInbound" *ngIf="model.paxCount == 1">
+    {{labelsProvider.translate('popupSelectedServicePRBZ')}}
+  </span>
+  <span id="selectedServicePluralInbound" *ngIf="model.paxCount > 1 && isInboundCheckboxChecked()">
+    {{labelsProvider.translate('popupSelectedServicesPRBZ') | replaceText: [model.paxCount] }}
+  </span>
+  <span id="selectedServicePluralInboundZero" *ngIf="model.paxCount > 1 && !isInboundCheckboxChecked()">
+    {{labelsProvider.translate('popupSelectedServicesPRBZ') | replaceText: [0] }}
+  </span>
+</p>

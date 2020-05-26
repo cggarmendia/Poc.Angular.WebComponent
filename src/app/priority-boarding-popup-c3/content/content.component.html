@@ -1,0 +1,35 @@
+<div id="mainContentPopupOW">
+  <fieldset>
+
+    <content-header
+      [model] = "model.contentHeader">
+    </content-header>
+
+    <div class="totalservices txtAlignCenter heightAuto  paddingTop25 paddingLeft10 paddingRight10 paddingBottom5">
+
+      <div class="vg-row marginBottom30">
+        <content-journey-checkbox
+          *ngIf= "model.isPossibleToShowOutboundCheckbox"
+          [model]= "model.outboundContentJourneyCheckbox"
+          (checkboxClicked) = "onOutboundCheckboxClicked($event)">
+        </content-journey-checkbox>
+
+        <content-journey-checkbox
+          *ngIf= "model.isPossibleToShowInboundCheckbox"
+          [model]= "model.inboundContentJourneyCheckbox"
+          (checkboxClicked) = "onInboundCheckboxClicked($event)">
+        </content-journey-checkbox>
+      </div>
+
+      <content-total-with-price
+        [model] = "model.contentTotalWithPrice">
+      </content-total-with-price>
+
+      <content-total-by-journey
+        [model] = "model.contentTotalByJourney">
+      </content-total-by-journey> 
+
+    </div>
+
+  </fieldset>
+</div>

@@ -1,0 +1,27 @@
+<input type="hidden" id="returnPRBZ" name="returnPRBZ" [value]="isReturnPRBZSelected" autocomplete="off" />
+<input type="hidden" id="departurePRBZ" name="departurePRBZ" [value]="isDeparturePRBZSelected" autocomplete="off" />
+<input type="hidden" id="owPRBZ" name="owPRBZ" [value]="isOwPRBZSelected" autocomplete="off" />
+
+<div *ngIf="showPopup">
+
+  <div class="blockUI blockOverlay"
+    style="z-index: 500; border: none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgb(255, 255, 255); opacity: 0.6; cursor: default; position: fixed;">
+  </div>
+
+  <div class="blockUI sectionBorder_lightBox modalSize_sm"
+    style="z-index: 1000; position: fixed; height: auto; top: 251.5px; left: 283px;">
+
+    <div id="priority-boarding-pop-up-c3" class="blockUIPopUp block--modal">
+      <app-header 
+        (closePopupClicked)='onClosePopupClicked()'>
+      </app-header>
+      <app-content
+        [model]= "content">
+      </app-content>
+      <app-footer 
+        (callToAction)="onCallToActionClicked($event)">
+      </app-footer>
+    </div>
+  </div>
+
+</div>

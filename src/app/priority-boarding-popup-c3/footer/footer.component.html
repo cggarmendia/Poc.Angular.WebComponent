@@ -1,0 +1,14 @@
+<div class="sepBorderDots marginBottom10"></div>
+<div class="txtAlignCenter">
+  <a id="continue-without-prbz" [ngClass]="{'disabled': this.footerClicked}" class="fs_12 marginRight10" 
+  (click)="onContinueWithoutPrbzClick()">
+    {{ labelsProvider.translate('popupContinueWithoutPRBZ')}}
+  </a>
+  <a id="continue-with-prbz" [ngClass]="{'disabled': this.footerClicked}" class="mv_button size-sm paddingLeft60 paddingRight60 marginTop16 marginBottom16" 
+  (click)="onContinueWithPrbzClick()">
+    <span class="fs_12 fw_800">
+      {{ labelsProvider.translate('popupContinueWithPRBZ') }}
+    </span>
+  </a>
+</div>
+

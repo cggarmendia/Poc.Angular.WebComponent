@@ -1,0 +1,22 @@
+<div class="bc_f3f3f3">
+  <div class="posRel displayTableCell">
+    <img src="" draggable="false"
+      class="img-boarding-priority" />
+    <span class="sticker_round sticker_round--spaced sticker_round--xs verdana">
+      <p class="fs_8 verdana lh_12px" [innerHtml]="labelsProvider.translate('titleCircle')">
+      </p>
+    </span>
+  </div>
+  <div
+    class="displayTableCell paddingLeft30 paddingRight30 paddingTop10 paddingBottom10 txtAlignMiddle txtAlignCenter">
+    <h3 class="titleH4 verdana tc_green marginBottom15" style=" margin-left: 60px;">
+      {{labelsProvider.translate('popupIntroTitlePRBZ')}}
+    </h3>
+    <app-content-header-price keyOfI18n={{textOfHeaderContentPrice}} price={{getMinPrice()}}></app-content-header-price>
+    <p class="tc_greySoft fs_11">
+      <span id="textLabelAllPax">
+        {{labelsProvider.translate('labelAllPax')}}
+      </span>
+    </p>
+  </div>
+</div>
